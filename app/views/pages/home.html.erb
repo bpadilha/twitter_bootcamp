@@ -1,1 +1,27 @@
 <h1> Estamos na home. </h1>
+
+<% if user_signed_in? %> <!-- verificar se o usuario esta logado -->
+  Olá, <%= current_user.email %>
+  <br>
+  Clique aqui para <%= link_to 'sair.', destroy_user_session_path, method: :delete %> <!-- usuario sair-->
+  <h2>Lista de tweets</h2>
+  <%= form_for @tweet do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+  <%end %>
+
+  <br>
+  <br>
+  <hr>
+  <ul>
+  <% current_user.tweets.each do |tweet| %>
+    <li><%= tweet.content %></li>
+  </ul>
+  <% end %>
+  <hr>
+  <br>
+  <br>
+
+<% else %>
+  <%= link_to 'Clique aqui para logar', new_user_session_path%>
+<%end%>
