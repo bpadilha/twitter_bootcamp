@@ -1,0 +1,8 @@
+<h1> Usuários </h1>
+
+<ul> <!--coloca o pontinho-->
+<% @users.each do |user| %> <!--repetição para listar os uruários registrados -->
+  <li><%= link_to user.email, user_path(user) %></li>
+  <br>
+<%end%>
+</ul>
