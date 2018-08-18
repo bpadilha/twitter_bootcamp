@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <div class='Notificacoes'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    </header>
+    <section>
+      <%= yield %>
+    </section>
+    <footer> <!-- rodapé -->
+      <p> Feito no bootcamp</p>
+    </footer>
   </body>
 </html>
