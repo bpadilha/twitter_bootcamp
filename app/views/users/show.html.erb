@@ -1,4 +1,8 @@
 <h1> Perfil do <%= @user.email %> </h1>
+<hr>
+<h4> Numero de seguidores (<%= @user.followers.count %>)<br>
+<h4> Seguindo (<%= @user.following.count %>)
+<hr>
 
 <h2> Tweets (<%= @user.tweets.count %>)</h2>
 
@@ -10,4 +14,5 @@
       <li><%= tweet.content %></li>
     <% end %>
   </ul>
+
 <%end%>
