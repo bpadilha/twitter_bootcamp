@@ -6,6 +6,12 @@
 
 <h2> Tweets (<%= @user.tweets.count %>)</h2>
 
+<% if current_user.following? @user %> <!--verificando se o usuario segue e dar o botão de não seguir -->
+  <%=link_to 'Unfollow', relationship_path(@user), method: :delete %>
+<% else %>
+  <%= link_to 'Follow', relationships_path(id: @user.id), method: :post %>
+<%end%>
+
 <% if @user.tweets.empty? %> <!-- Vendo que se os usuarios não tem tweets, mostrar vazio-->
   <p>Usuário ainda não tem tweets.</p>
 <%else%>
